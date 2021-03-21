@@ -1,7 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
-
-import React, {Fragment} from "react";
+import React from "react";
 import {Route} from "react-router-dom";
 
 // layouts
@@ -11,15 +8,24 @@ import Footer from "./pages/layouts/Footer";
 // routes
 import MainPage from "./pages/MainPage";
 
-function App() {
+const AppProvider = ({contexts, children}) => contexts.reduce(
+  (prev, context) => React.createElement(context, {
+      children: prev
+}),
+  children
+);
+
+const App = () => {
   return (
-    <div className="App">
-      <Header/>
-      <div id="gjMainWrap">
-        <Route exact path="/" component={MainPage}/>
+    <AppProvider>
+      <div className="App">
+        <Header/>
+        <div id="gjMainWrap">
+          <Route path="/" exact component={MainPage}/>
+        </div>
+        <Footer/>
       </div>
-      <Footer/>
-    </div>
+    </AppProvider>
   );
 }
 
