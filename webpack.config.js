@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     mode: 'development',
@@ -11,22 +12,29 @@ const config = {
     module: {
         rules: [
             {test: /\.scss$/, use: [
-                    {
-                        loader: miniCssExtractPlugin.loader
-                    },
-                    "css-loader",
-                    "sass-loader"
-                ]},
+                {
+                    loader: miniCssExtractPlugin.loader
+                },
+                "css-loader",
+                "sass-loader"
+            ]},
             {test: /\.css$/, use: [
-                    'style-loader',
-                    'css-loader'
-                ]},
-            {test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/, use: [
+                'style-loader',
+                'css-loader'
+            ]},
+            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, use: [
                     'url-loader'
                 ]},
             {test: /\.(js|jsx)$/, exclude: /node_modules/, use: [
-                    'babel-loader'
-                ]}
+                {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-react'
+                        ]
+                    }
+                },
+            ]}
         ]
     },
     resolve: {
@@ -39,7 +47,12 @@ const config = {
         }),
         new webpack.DefinePlugin({
             '__REACT_DEVTOOLS_GLOBAL_HOOK__': '({ isDisabled: true })'
+        }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            filename: './public/index.html'
         })
+        // 추가중
     ]
 };
 
