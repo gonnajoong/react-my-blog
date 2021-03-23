@@ -15,7 +15,7 @@ class MainPage extends Component {
         return (
             <Fragment>
                 <article id="gjMainPageWrap">
-                    블로그 메인 페이지
+                    김관중 블로그
                 </article>
             </Fragment>
         );
