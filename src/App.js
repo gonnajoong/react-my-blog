@@ -17,7 +17,6 @@ const AppProvider = ({contexts, children}) => contexts.reduce(
 
 const App = () => {
   return (
-    <AppProvider>
       <div className="App">
         <Header/>
         <div id="gjMainWrap">
@@ -25,7 +24,6 @@ const App = () => {
         </div>
         <Footer/>
       </div>
-    </AppProvider>
   );
 }
 

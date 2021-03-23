@@ -50,7 +50,7 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            filename: './public/index.html'
+            filename: './index.html'
         })
         // 추가중
     ]
