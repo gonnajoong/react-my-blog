@@ -15,7 +15,7 @@ class MainPage extends Component {
         return (
             <Fragment>
                 <article id="gjMainPageWrap">
-                    메인 페이지 컴포넌트
+                    블로그 메인 페이지
                 </article>
             </Fragment>
         );

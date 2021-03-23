@@ -15,7 +15,7 @@ class Header extends Component {
         return (
             <Fragment>
                 <header id="gjHeader">
-                    헤더 컴포넌트-
+                    헤더 컴포넌트
                 </header>
             </Fragment>
         );
