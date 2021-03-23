@@ -8,7 +8,7 @@ class MainPage extends Component {
     }
 
     componentDidMount() {
-
+        console.log('componentdidMount');
     }
 
     render() {

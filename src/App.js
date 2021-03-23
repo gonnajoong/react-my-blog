@@ -19,9 +19,10 @@ const App = () => {
   return (
       <div className="App">
         <Header/>
-        <div id="gjMainWrap">
+        <MainPage/>
+        {/* <div id="gjMainWrap">
           <Route path="/" exact component={MainPage}/>
-        </div>
+        </div> */}
         <Footer/>
       </div>
   );
